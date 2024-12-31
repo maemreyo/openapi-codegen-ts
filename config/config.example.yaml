@@ -1,0 +1,50 @@
+input:
+  - examples/input/pfp/openapi.yaml # Path to your OpenAPI specification file
+output:
+  apiPaths: src/api-paths # Folder to store generated API paths
+  types: src/types # Folder to store generated types
+  parameters: src/parameters # Folder to store generated parameters
+typeAliases:
+  UUID: string # Alias UUID to string
+  ISODate: string # Alias ISODate to string
+  # Add more type aliases here...
+nameFormat:
+  parameters: PascalCase # Format parameters in PascalCase
+  properties: camelCase # Format properties in camelCase
+  # Add more name format rules here...
+importTypes:
+  UUID: "uuid" #Import UUID type from uuid package
+  ISODate: "./my-custom-types" #Import ISODate from a local file
+features:
+  linting: true # Enable linting with ESLint
+  formatting: true # Enable formatting with Prettier
+  multipleConfigs: true # Enable multiple config files
+  generateByPath: true # Enable generating code by API path
+  generateByGroup: false # Disable generating code by group
+  plugins: # Enable plugins
+    - ./my-plugin.ts # Path to your custom plugin
+  overwrite: false # Disable overwriting existing files
+  merge: true # Enable merging with existing files
+  caching: true # Enable caching
+  openApiVersion: 3.0.3 # Specify OpenAPI version
+  generateDocs: false # Disable automatic document generation
+  generateOtherLanguages: false # Disable code generation for other languages
+  debug: false # Disable debug mode
+  validateConfig: true # Enable config file validation
+  customTemplates: # Enable custom templates
+    apiPaths: ./templates/api-paths.hbs
+    types: ./templates/types.hbs
+    parameters: ./templates/parameters.hbs
+  generateComponents: true # Enable generating code for components schema
+  generateSecuritySchemes: true # Enable generating code for security schemes
+  ciCdIntegration: true # Enable CI/CD integration
+  smartErrorHandling: true # Enable smart error handling
+  codeFormatOptions: # Configure code formatting options
+    indent: 4
+    quote: single
+  generateResponses: true # Enable generating code for responses
+  generateComments: true # Enable comment generation
+  provideApi: true # Enable programmatic API
+  customFormat: # Enable custom format functions
+    - name: toSnakeCase
+      path: ./my-formatters.ts
